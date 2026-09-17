@@ -1,42 +1,10 @@
-import {
-  ArrowRight,
-  Calculator,
-  CheckCircle2,
-  ChevronRight,
-  Headset,
-  Monitor,
-  Package,
-  Store,
-  UtensilsCrossed
-} from "lucide-react";
+import { ArrowRight, CheckCircle2, ChevronRight, Headset, Monitor } from "lucide-react";
+import ServicesSection from "./components/ServicesSection";
 
 const stats = [
   ["6 лет", "на рынке"],
   ["500+", "клиентов по России"],
   ["320 000+", "решённых заявок"],
-];
-
-const services = [
-  {
-    icon: Headset,
-    title: "Техническая поддержка",
-    text: "Решаем технические вопросы после запуска и помогаем бизнесу работать без простоев."
-  },
-  {
-    icon: UtensilsCrossed,
-    title: "Автоматизация iiko",
-    text: "Внедрение, настройка, интеграции, обучение и сопровождение ресторанов и HoReCa."
-  },
-  {
-    icon: Store,
-    title: "Автоматизация Saby",
-    text: "Автоматизация розничного бизнеса и сопровождение рабочих процессов."
-  },
-  {
-    icon: Package,
-    title: "Торговое оборудование",
-    text: "Кассы, моноблоки, планшеты, сканеры, весы, денежные ящики и периферия."
-  }
 ];
 
 const problems = [
@@ -64,8 +32,7 @@ export default function Home() {
             <a href="#solutions">Решения</a>
             <a href="#services">Услуги</a>
             <a href="#equipment">Оборудование</a>
-            <a href="#calculator">Калькулятор</a>
-            <a href="#about">О компании</a>
+            <a href="#contact">Обратная связь</a>
           </nav>
 
           <a className="header-phone" href="tel:+70000000000">
@@ -99,7 +66,7 @@ export default function Home() {
             </p>
 
             <div className="hero-actions">
-              <a className="button button-primary" href="#calculator">
+              <a className="button button-primary" href="#contact">
                 Рассчитать стоимость <ArrowRight size={18} />
               </a>
               <a className="button button-secondary" href="#contact">
@@ -180,43 +147,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section" id="services">
-        <div className="container">
-          <div className="section-heading centered">
-            <div>
-              <div className="eyebrow">Основные направления</div>
-              <h2>Всё необходимое для работы торговой точки</h2>
-            </div>
-          </div>
-
-          <div className="service-grid">
-            {services.map(({ icon: Icon, title, text }) => (
-              <article className="service-card" key={title}>
-                <div className="icon-box">
-                  <Icon size={23} />
-                </div>
-                <h3>{title}</h3>
-                <p>{text}</p>
-                <a href="#contact">Подробнее <ArrowRight size={16} /></a>
-              </article>
-            ))}
-          </div>
-
-          <div className="wide-card">
-            <div>
-              <div className="eyebrow">Дополнительные услуги</div>
-              <h3>От кассы и ОФД до маркировки и государственных систем</h3>
-              <p>
-                Регистрация и перерегистрация ККТ, ОФД, «Честный Знак», ТС ПиОТ,
-                ЕГАИС, Меркурий, выезд инженера и ведение учёта.
-              </p>
-            </div>
-            <a className="button button-dark" href="#contact">
-              Все услуги <ArrowRight size={18} />
-            </a>
-          </div>
-        </div>
-      </section>
+      <ServicesSection />
 
       <section className="section light-section" id="equipment">
         <div className="container">
@@ -240,69 +171,6 @@ export default function Home() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section calculator-section" id="calculator">
-        <div className="container">
-          <div className="calculator-card">
-            <div className="calculator-copy">
-              <div className="eyebrow">Предварительный расчёт</div>
-              <h2>Соберите решение для своей точки</h2>
-              <p>
-                Следующим этапом превратим этот блок в полноценный интерактивный
-                калькулятор с выбором услуг, оборудования и количества точек.
-              </p>
-              <div className="calculator-note">
-                <Calculator size={20} />
-                <span>Расчёт будет ориентировочным. Точную стоимость подтвердит менеджер.</span>
-              </div>
-            </div>
-
-            <div className="calculator-demo">
-              <label>Тип бизнеса</label>
-              <div className="fake-select">Ресторан <ChevronRight size={17} /></div>
-
-              <label>Количество точек</label>
-              <div className="fake-select">1 торговая точка <ChevronRight size={17} /></div>
-
-              <label>Что требуется</label>
-              <div className="chips">
-                <span>iiko</span>
-                <span>Оборудование</span>
-                <span>Поддержка</span>
-              </div>
-
-              <div className="fake-total">
-                <span>Ориентировочно</span>
-                <strong>от ХХ XXX ₽</strong>
-              </div>
-
-              <a className="button button-primary full-width" href="#contact">
-                Получить точный расчёт <ArrowRight size={18} />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section about-section" id="about">
-        <div className="container about-grid">
-          <div>
-            <div className="eyebrow">Технологии Бизнеса</div>
-            <h2>Технический партнёр, который остаётся с вами после запуска</h2>
-          </div>
-          <div className="about-copy">
-            <p>
-              Мы помогаем бизнесу автоматизировать ежедневные процессы и не оставляем
-              клиента один на один с техническими вопросами после внедрения.
-            </p>
-            <div className="about-points">
-              <div><CheckCircle2 /> Работаем с ИП и ООО</div>
-              <div><CheckCircle2 /> Обслуживаем клиентов по всей России</div>
-              <div><CheckCircle2 /> От одной точки до крупных сетей</div>
-            </div>
           </div>
         </div>
       </section>
@@ -358,7 +226,6 @@ export default function Home() {
             <span className="footer-label">Навигация</span>
             <a href="#services">Услуги</a>
             <a href="#equipment">Оборудование</a>
-            <a href="#calculator">Калькулятор</a>
             <a href="#contact">Контакты</a>
           </div>
         </div>
