@@ -1,5 +1,6 @@
-import { ArrowRight, CheckCircle2, ChevronRight, Headset, Monitor } from "lucide-react";
+import { ArrowRight, CheckCircle2, Headset } from "lucide-react";
 import ServicesSection from "./components/ServicesSection";
+import EquipmentSection from "./components/EquipmentSection";
 
 const stats = [
   ["6 лет", "на рынке"],
@@ -66,11 +67,8 @@ export default function Home() {
             </p>
 
             <div className="hero-actions">
-              <a className="button button-primary" href="#contact">
-                Рассчитать стоимость <ArrowRight size={18} />
-              </a>
-              <a className="button button-secondary" href="#contact">
-                Получить консультацию
+              <a className="button button-secondary hero-cta" href="#contact">
+                Получить консультацию <ArrowRight size={19} />
               </a>
             </div>
 
@@ -137,10 +135,9 @@ export default function Home() {
           </div>
 
           <div className="problem-grid">
-            {problems.map((problem, index) => (
+            {problems.map((problem) => (
               <div className="problem-card" key={problem}>
                 <p>{problem}</p>
-                <ChevronRight size={20} />
               </div>
             ))}
           </div>
@@ -149,31 +146,7 @@ export default function Home() {
 
       <ServicesSection />
 
-      <section className="section light-section" id="equipment">
-        <div className="container">
-          <div className="section-heading">
-            <div>
-              <div className="eyebrow">Торговое оборудование</div>
-              <h2>Подберём технику под вашу задачу</h2>
-            </div>
-            <p>Пока используем демонстрационные карточки. Реальный каталог подключим следующим этапом.</p>
-          </div>
-
-          <div className="equipment-grid">
-            {["Фискальные регистраторы", "POS-моноблоки", "Планшеты", "Сканеры штрихкодов", "Весы", "Денежные ящики"].map((item, index) => (
-              <div className="equipment-card" key={item}>
-                <div className={`equipment-art art-${index + 1}`}>
-                  <Monitor size={44} strokeWidth={1.5} />
-                </div>
-                <div>
-                  <h3>{item}</h3>
-                  <span>Цена — уточняется</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <EquipmentSection />
 
       <section className="section contact-section" id="contact">
         <div className="container">

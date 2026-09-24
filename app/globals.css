@@ -32,15 +32,15 @@ button, input, textarea { font: inherit; }
 
 .brand-name strong {
   display: block;
-  font-size: 14px;
+  font-size: 17px;
   line-height: 1;
   font-weight: 800;
   letter-spacing: -0.02em;
 }
 
-.desktop-nav { display:flex; gap:25px; font-size:14px; color:#334d70; }
+.desktop-nav { display:flex; gap:25px; font-size:16px; color:#334d70; }
 .desktop-nav a:hover { color:#005ddc; }
-.header-phone { font-weight:700; font-size:14px; }
+.header-phone { font-weight:700; font-size:16px; }
 
 /* .hero { position:relative; overflow:hidden; padding:95px 0 70px; background:linear-gradient(135deg,#fff 20%,#f4f8ff 100%); } */
 .hero {
@@ -50,23 +50,23 @@ button, input, textarea { font: inherit; }
   background:
     radial-gradient(
       circle at 88% 18%,
-      rgba(0, 93, 220, 0.2),
+      rgba(0, 93, 220, 0.29),
       transparent 30%
     ),
     radial-gradient(
       circle at 8% 86%,
-      rgba(116, 70, 220, 0.14),
+      rgba(116, 70, 220, 0.2),
       transparent 26%
     ),
     linear-gradient(
       135deg,
       #ffffff 0%,
-      #f2f8ff 45%,
-      #dfeeff 100%
+      #ecf5ff 45%,
+      #d1e6ff 100%
     );
 }
 .hero-grid { display:grid; grid-template-columns:1.04fr .96fr; align-items:center; gap:50px; position:relative; z-index:2; }
-.eyebrow { text-transform:uppercase; letter-spacing:.12em; font-size:11px; font-weight:800; color:#005ddc; margin-bottom:30px; }
+.eyebrow { text-transform:uppercase; letter-spacing:.12em; font-size:13px; font-weight:800; color:#005ddc; margin-bottom:30px; padding-left:4px; }
 .hero h1 {
   margin: 0;
   font-size: clamp(46px, 6vw, 78px);
@@ -80,7 +80,11 @@ button, input, textarea { font: inherit; }
 .button { min-height:50px; padding:0 20px; border-radius:14px; border:1px solid transparent; display:inline-flex; align-items:center; justify-content:center; gap:10px; font-weight:700; cursor:pointer; transition:.22s ease; }
 .button:hover { transform:translateY(-2px); }
 .button-primary { background:#005ddc; color:#fff; box-shadow:0 12px 30px rgba(0,93,220,.22); }
+.button-primary:hover { background:#0049b3; box-shadow:0 16px 36px rgba(0,93,220,.3); }
 .button-secondary { background:rgba(255,255,255,.7); border-color:#d8e2f0; }
+/* Крупная заметная CTA в hero: синяя заливка, увеличенный размер */
+.hero-cta { min-height:62px; padding:0 36px; font-size:17px; border-radius:17px; background:#005ddc; border-color:#005ddc; color:#fff; box-shadow:0 16px 36px rgba(0,93,220,.3); }
+.hero-cta:hover { background:#0049b3; border-color:#0049b3; box-shadow:0 20px 44px rgba(0,93,220,.36); }
 
 /* .stats { display:flex; gap:30px; margin-top:55px; }
 .stat strong { display:block; font-size:27px; }
@@ -167,8 +171,7 @@ button, input, textarea { font: inherit; }
   padding: 30px 32px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 30px;
+  gap: 18px;
 
   border: 1px solid rgba(0, 28, 67, 0.08);
   border-radius: 24px;
@@ -191,6 +194,17 @@ button, input, textarea { font: inherit; }
   cursor: pointer;
 }
 
+/* Маркер-точка вместо стрелки: карточка — тезис, а не кнопка */
+.problem-card::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #005ddc, #4d9bff);
+  box-shadow: 0 0 0 5px rgba(0, 93, 220, 0.12);
+}
+
 .problem-card p {
   margin: 0;
   max-width: 560px;
@@ -202,12 +216,6 @@ button, input, textarea { font: inherit; }
   color: #001c43;
 }
 
-.problem-card svg {
-  flex: 0 0 auto;
-  color: #005ddc;
-  transition: transform 0.25s ease;
-}
-
 .problem-card:hover {
   transform: translateY(-4px);
   border-color: rgba(0, 93, 220, 0.18);
@@ -215,13 +223,8 @@ button, input, textarea { font: inherit; }
   background: rgba(255, 255, 255, 0.82);
 
   box-shadow:
-    /* 0 20px 45px rgba(24, 64, 120, 0.10), */
     0 20px 45px rgba(33, 13, 88, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
-}
-
-.problem-card:hover svg {
-  transform: translateX(5px);
 }
 
 .carousel-wrap { position:relative; }
@@ -267,24 +270,24 @@ button, input, textarea { font: inherit; }
 .service-card { flex:0 0 calc((100% - 42px)/4); scroll-snap-align:start; padding:28px; border:1px solid #e1eaf5; border-radius:24px; transition:.22s ease; display:flex; flex-direction:column; }
 .service-card:hover { transform:translateY(-5px); box-shadow:0 18px 40px rgba(0,28,67,.08); }
 .icon-box { width:48px; height:48px; display:grid; place-items:center; border-radius:15px; background:#dcebff; color:#005ddc; margin-bottom:25px; }
-.service-card h3 { margin:0 0 12px; font-size:20px; }
+.service-card h3 { margin:0 0 12px; font-size:20px; font-weight:800; }
 .service-card p { color:#61758f; line-height:1.55; margin:0 0 18px; flex:1 1 auto; }
-.service-card a { display:inline-flex; align-items:center; gap:7px; color:#005ddc; font-weight:700; font-size:14px; margin-top:auto; }
+.service-card a { display:inline-flex; align-self:center; align-items:center; gap:8px; padding:12px 22px; border-radius:13px; background:rgba(0,93,220,.07); color:#005ddc; font-weight:700; font-size:16px; margin-top:auto; transition:background .22s ease; }
+.service-card a:hover { background:rgba(0,93,220,.14); }
 
 /* Акцентная тёмная версия секции услуг: фон и заголовок,
    карточки и стрелки остаются светлыми */
 .services-dark { background:linear-gradient(135deg,#01275a,#001c43 60%,#001532); padding:100px 0 140px; }
 .services-dark .eyebrow { color:#8ab6ff; }
 .services-dark .section-heading h2 { color:#fff; }
+/* параграф в тёмной секции — светлее для читаемости */
+.services-dark .section-heading > p { color:#b9c9e4; }
 
-/* Глассморфизм карточек на тёмном фоне: светлый полупрозрачный
-   градиент + размытие фона + светлая рамка. Тени убраны —
-   на тёмном фоне они выглядели слишком резко */
+/* Карточки услуг на тёмном фоне: чистый холодный градиент от белого
+   к светло-голубому. Прозрачный низ + blur давали «грязный» вид */
 .services-dark .service-card {
-  background:linear-gradient(165deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.84) 55%,rgba(255,255,255,.72) 100%);
-  border-color:rgba(255,255,255,.9);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
+  background:linear-gradient(165deg,#ffffff 0%,#f5f9ff 50%,#e8f2ff 100%);
+  border-color:rgba(255,255,255,.95);
 }
 .services-dark .service-card:hover {
   transform:translateY(-5px);
@@ -301,19 +304,44 @@ button, input, textarea { font: inherit; }
 
 .light-section { background:#f7faff; }
 .equipment-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
-.equipment-card { background:#fff; border:1px solid #e0e9f4; border-radius:24px; padding:14px; }
-.equipment-art { min-height:180px; border-radius:18px; display:grid; place-items:center; background:linear-gradient(135deg,#e8f2ff,#f2edff); color:#005ddc; }
-.equipment-card h3 { margin:18px 12px 5px; font-size:18px; }
-.equipment-card span { margin:0 12px 10px; display:block; color:#71849c; font-size:13px; }
+.equipment-card { background:#fff; border:1px solid #e0e9f4; border-radius:24px; padding:14px; display:flex; flex-direction:column; }
+.equipment-art { min-height:230px; border-radius:18px; display:grid; place-items:center; color:#005ddc; }
+/* Цветовые поля-иллюстрации категорий (под реальные фото, когда появятся) */
+.equipment-art.art-1 { background:linear-gradient(135deg,#e3efff,#d6e7ff); color:#0056cf; }
+.equipment-art.art-2 { background:linear-gradient(135deg,#e8e9ff,#dbe3ff); color:#4453d6; }
+.equipment-art.art-3 { background:linear-gradient(135deg,#e6f6ef,#d6efe2); color:#0e9a63; }
+.equipment-art.art-4 { background:linear-gradient(135deg,#fff2e2,#ffe6cf); color:#d07419; }
+.equipment-art.art-5 { background:linear-gradient(135deg,#f2e9ff,#e8dbff); color:#7c4ddb; }
+.equipment-art.art-6 { background:linear-gradient(135deg,#eef2f7,#e1e8f2); color:#5b7191; }
+.equipment-card h3 { margin:18px 12px 5px; font-size:21px; text-align:center; }
+.equipment-card span { margin:0 12px 10px; display:block; color:#71849c; font-size:14.5px; text-align:center; }
 
-.contact-card { display:grid; grid-template-columns:1fr 1fr; gap:70px; padding:55px; border-radius:32px; background:linear-gradient(135deg,#e9f3ff,#f4efff); }
+/* Кнопка «Смотреть модели» в карточке оборудования: только смена цвета, без прыжков */
+.equipment-more { margin:auto 12px 8px; align-self:center; padding:12px 22px; border-radius:14px; border:1px solid #d3e2f6; background:#fff; color:#005ddc; font-weight:700; font-size:15px; cursor:pointer; transition:background .22s ease, border-color .22s ease, color .22s ease; }
+.equipment-more:hover { background:#005ddc; border-color:#005ddc; color:#fff; }
+
+/* Окно с моделями оборудования */
+.equipment-modal-overlay { position:fixed; inset:0; z-index:100; display:grid; place-items:center; padding:20px; background:rgba(1,28,67,.55); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); animation:equipment-overlay-in .2s ease; }
+.equipment-modal { position:relative; width:min(640px,100%); max-height:min(84vh,720px); overflow:auto; padding:34px 34px 30px; border-radius:30px; background:linear-gradient(165deg,#ffffff,#f4f9ff); border:1px solid rgba(255,255,255,.9); box-shadow:0 40px 90px rgba(1,28,67,.4); animation:equipment-modal-in .22s ease; }
+@keyframes equipment-overlay-in { from { opacity:0; } to { opacity:1; } }
+@keyframes equipment-modal-in { from { opacity:0; transform:translateY(16px) scale(.97); } to { opacity:1; transform:none; } }
+.equipment-modal .eyebrow { margin-bottom:12px; }
+.equipment-modal h3 { margin:0 0 6px; font-size:34px; letter-spacing:-.02em; }
+.equipment-modal-close { position:absolute; top:18px; right:18px; width:42px; height:42px; display:grid; place-items:center; border-radius:13px; border:1px solid #e2ecf8; background:#f5f9ff; color:#4a628a; cursor:pointer; transition:background .2s ease, color .2s ease; }
+.equipment-modal-close:hover { background:#e8f2ff; color:#005ddc; }
+.equipment-model-list { list-style:none; margin:24px 0 0; padding:0; display:grid; gap:12px; }
+.equipment-model-list li { display:flex; align-items:center; justify-content:space-between; gap:14px; padding:16px 20px; border:1px solid #e4edf8; border-radius:16px; background:linear-gradient(135deg,#fbfdff,#f3f8ff); }
+.equipment-model-name { font-weight:700; font-size:17px; }
+.equipment-model-note { color:#6c809b; font-size:15px; white-space:nowrap; }
+
+.contact-card { display:grid; grid-template-columns:1fr 1fr; gap:70px; padding:55px; border-radius:32px; background:linear-gradient(135deg,#dfeeff,#efe8ff); }
 .contact-card h2 { margin:0 0 20px; font-size:clamp(36px,4vw,55px); line-height:1.02; letter-spacing:-.045em; }
 .contact-card p { color:#60758f; line-height:1.6; max-width:520px; }
 .contact-form { display:grid; gap:10px; }
 .contact-form input, .contact-form textarea { width:100%; border:1px solid #d4e0ef; background:rgba(255,255,255,.75); border-radius:13px; padding:14px 15px; outline:none; }
 .contact-form input:focus, .contact-form textarea:focus { border-color:#005ddc; }
 .contact-form textarea { resize:vertical; }
-.contact-form small { color:#6c7f97; line-height:1.4; }
+.contact-form small { color:#6c7f97; font-size:13.5px; line-height:1.4; display:block; text-align:center; }
 
 .footer { background:#001c43; color:#fff; padding:55px 0 25px; }
 .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr; gap:50px; }
