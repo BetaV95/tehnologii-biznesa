@@ -334,6 +334,41 @@ button, input, textarea { font: inherit; }
 .equipment-model-name { font-weight:700; font-size:17px; }
 .equipment-model-note { color:#6c809b; font-size:15px; white-space:nowrap; }
 
+/* Готовые комплекты оборудования: портретные карточки
+   (фото-плейсхолдер, название, построчный состав с маркером-точкой) */
+/* Разделитель с подписью: отделяет группу комплектов и делает
+   центрированный заголовок уместным внутри блока */
+.kit-heading {
+  margin:56px 0 28px;
+  display:flex;
+  align-items:center;
+  gap:20px;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-weight:800;
+  color:#005ddc;
+  text-align:center;
+  white-space:nowrap;
+}
+.kit-heading::before,
+.kit-heading::after {
+  content:"";
+  flex:1 1 auto;
+  height:1px;
+  border-radius:1px;
+}
+.kit-heading::before { background:linear-gradient(90deg,transparent,rgba(0,93,220,.35)); }
+.kit-heading::after { background:linear-gradient(90deg,rgba(0,93,220,.35),transparent); }
+.kit-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.kit-card { min-height:430px; display:flex; flex-direction:column; background:#fff; border:1px solid #e0e9f4; border-radius:24px; padding:14px; }
+.kit-art { min-height:250px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; border-radius:18px; background:linear-gradient(135deg,#eef4ff,#e2edff); color:#005ddc; }
+.kit-art span { font-size:13px; font-weight:600; color:#5b7191; }
+.kit-card h3 { margin:20px 10px 18px; font-size:21px; text-align:center; }
+.kit-list { list-style:none; margin:auto 8px 14px; padding:0; display:grid; gap:9px; align-content:center; flex:1; }
+.kit-list li { display:flex; align-items:center; justify-content:center; gap:9px; text-align:center; color:#43536e; font-size:14.5px; line-height:1.4; }
+.kit-list li::before { content:""; flex:0 0 auto; width:6px; height:6px; border-radius:50%; background:linear-gradient(135deg,#005ddc,#4d9bff); box-shadow:0 0 0 3px rgba(0,93,220,.12); }
+
 .contact-card { display:grid; grid-template-columns:1fr 1fr; gap:70px; padding:55px; border-radius:32px; background:linear-gradient(135deg,#dfeeff,#efe8ff); }
 .contact-card h2 { margin:0 0 20px; font-size:clamp(36px,4vw,55px); line-height:1.02; letter-spacing:-.045em; }
 .contact-card p { color:#60758f; line-height:1.6; max-width:520px; }
@@ -356,6 +391,7 @@ button, input, textarea { font: inherit; }
   .hero-grid, .contact-card { grid-template-columns:1fr; }
   .hero-visual { min-height:430px; }
   .problem-grid { grid-template-columns:repeat(2,1fr); }
+  .kit-grid { grid-template-columns:repeat(2,1fr); }
   .service-card { flex-basis:calc((100% - 14px)/2); }
   .equipment-grid { grid-template-columns:repeat(2,1fr); }
   .footer-grid { grid-template-columns:1fr 1fr; }
@@ -376,6 +412,8 @@ button, input, textarea { font: inherit; }
   .section-heading { display:block; }
   .section-heading > p { margin-top:20px; }
   .problem-grid, .equipment-grid { grid-template-columns:1fr; }
+  .kit-grid { grid-template-columns:1fr; }
+  .kit-heading { white-space:normal; gap:12px; }
   .service-card { flex-basis:100%; }
   .services-dark { padding:70px 0 90px; }
   .nav-arrow { width:44px; height:44px; top:calc(50% - 34px); }

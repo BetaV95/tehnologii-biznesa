@@ -3,10 +3,13 @@
 import { useEffect, useState } from "react";
 import {
   Archive,
+  Boxes,
   Monitor,
+  Package,
   Printer,
   Scale,
   ScanBarcode,
+  ShoppingCart,
   TabletSmartphone,
   X
 } from "lucide-react";
@@ -18,6 +21,41 @@ const equipment = [
   { title: "Сканеры штрихкодов", icon: ScanBarcode },
   { title: "Весы", icon: Scale },
   { title: "Денежные ящики", icon: Archive }
+];
+
+/** Готовые комплекты оборудования в сборке */
+const kits = [
+  {
+    title: "Комплект для минимаркета",
+    icon: Package,
+    items: [
+      "POS-моноблок",
+      "Фискальный регистратор",
+      "Сканер штрихкодов",
+      "Денежный ящик",
+      "Дисплей покупателя"
+    ]
+  },
+  {
+    title: "Комплект для кафе и общепита",
+    icon: Boxes,
+    items: [
+      "POS-моноблок",
+      "Фискальный регистратор",
+      "Принтер чеков",
+      "Денежный ящик"
+    ]
+  },
+  {
+    title: "Стартовый комплект для ИП",
+    icon: ShoppingCart,
+    items: [
+      "Фискальный регистратор",
+      "Планшет с кассовой программой",
+      "Сканер штрихкодов",
+      "Денежный ящик"
+    ]
+  }
 ];
 
 /** Сколько моделей-плейсхолдеров показывать в окне категории */
@@ -71,6 +109,25 @@ export default function EquipmentSection() {
                 Смотреть модели
               </button>
             </div>
+          ))}
+        </div>
+
+        <div className="kit-heading">Готовые комплекты оборудования</div>
+
+        <div className="kit-grid">
+          {kits.map(({ title, icon: Icon, items }) => (
+            <article className="kit-card" key={title}>
+              <div className="kit-art">
+                <Icon size={56} strokeWidth={1.4} />
+                <span>Фото комплекта</span>
+              </div>
+              <h3>{title}</h3>
+              <ul className="kit-list">
+                {items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
           ))}
         </div>
       </div>
